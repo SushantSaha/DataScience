@@ -1,0 +1,62 @@
+def strenght(usern,pas):
+    p=0
+    k=1
+    l=len(pas)
+    if(l>7):
+        p+=1
+        #print('1st condition true')
+        #print(p)
+    if usern in pas:
+        k=0
+        s='Invalid Password'        
+    for i in range(l):
+        if pas[i].isupper()==True:
+            for j in range(l):
+                if pas[j].islower()==True:
+                    p=p+1;
+                    #print('condition 2')
+                    #print(p)
+                    break
+            break
+                
+                    
+                                            
+                        
+            
+    for i in range(l):
+        if pas[i].isdigit()==True:
+            if i<l:
+                if pas[i+1].isdigit()==True:
+                    if int(pas[i])!=int(pas[i+1])-1:
+                        #print('condition 3')
+                        p+=1
+                        #print(p)
+                        break
+                      
+    for i in range(l):    
+        if pas[i].isupper()!=True and pas[i].islower()!=True and pas[i].isdigit()!=True:
+            #print('condition 4')
+            p+=1
+            #print(p)
+            break
+            
+    print('Points=',p)        
+    #print(p)
+    if k==0:
+        print(s)
+        return
+    else:
+        if p==4:
+            return 'Very strong'
+        if p==3:
+            return 'strong'
+        if p==2:
+            return 'Moderate'
+        if p==1:
+            return 'Weak'
+        if p==0:
+            return 'Try diff'
+        
+  
+        
+        
